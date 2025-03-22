@@ -1,5 +1,5 @@
 import React from 'react';
-import BibleVerseCard from '../../components/BibleVerseCard/BibleVerseCard';
+import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import './JesusIsGodPage.css';
 
 const JesusIsGodPage: React.FC = () => {
@@ -74,7 +74,7 @@ const JesusIsGodPage: React.FC = () => {
         <h2>From the Book of Hebrews</h2>
         <div className="verses-container">
           {hebrewsVerses.map((verse, index) => (
-            <BibleVerseCard
+            <IndividualCard
               key={index}
               reference={verse.reference}
               verses={verse.verses}

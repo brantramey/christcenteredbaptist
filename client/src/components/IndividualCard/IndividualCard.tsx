@@ -1,15 +1,15 @@
 import React from 'react';
-import './BibleVerseCard.css';
+import './IndividualCard.css';
 
-interface BibleVerseCardProps {
+interface IndividualCardProps {
   reference: string;
   verses: string;
   explanation?: string;
 }
 
-const BibleVerseCard: React.FC<BibleVerseCardProps> = ({ reference, verses, explanation }) => {
+const IndividualCard: React.FC<IndividualCardProps> = ({ reference, verses, explanation }) => {
   return (
-    <div className="bible-verse-card">
+    <div className="individual-card">
       <h3 className="verse-reference">{reference}</h3>
       <div className="verse-content">
         <p className="verse-text">{verses}</p>
@@ -23,4 +23,4 @@ const BibleVerseCard: React.FC<BibleVerseCardProps> = ({ reference, verses, expl
   );
 };
 
-export default BibleVerseCard;
+export default IndividualCard;

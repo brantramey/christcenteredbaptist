@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BibleVerseCard from '../../components/BibleVerseCard/BibleVerseCard';
+import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import './ArmorOfGodPage.css';
 import config from '../../config/config';
@@ -82,7 +82,7 @@ const ArmorOfGodPage: React.FC = () => {
     {
       reference: 'Helmet of Salvation - Ephesians 6:17a',
       verses: 'And take the helmet of salvation',
-      explanation: 'The helmet protects the mind against spiritual attacks. In 1 Thessalonians 5:8, we see the helmet used as "the hope of salvation." Salvation is a free gift of God\'s grace to those who believe (Ephesians 2:8-9).',
+      explanation: `The helmet protects the mind against spiritual attacks. In 1 Thessalonians 5:8, we see the helmet used as "the hope of salvation." Salvation is a free gift of God's grace to those who believe (Ephesians 2:8-9).`,
       detailedTeaching: {
         title: 'The Helmet of Salvation: Protecting the Mind',
         date: 'March 21, 2025',
@@ -198,7 +198,7 @@ const ArmorOfGodPage: React.FC = () => {
               className={`verse-card clickable ${selectedVerseIndex === index ? 'active' : ''}`}
               onClick={() => handleVerseSelect(index)}
             >
-              <BibleVerseCard
+              <IndividualCard
                 reference={verse.reference}
                 verses={verse.verses}
                 explanation={verse.explanation}

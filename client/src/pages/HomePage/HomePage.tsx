@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BibleVerseCard from '../../components/BibleVerseCard/BibleVerseCard';
+import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import { Tweet } from '../../types/types';
 import TwitterFeed from '../../components/TwitterFeed/TwitterFeed';
@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
 
       <section className="featured-verse-section">
         <h2>Featured Bible Verse</h2>
-        <BibleVerseCard 
+        <IndividualCard
           reference={featuredVerse.reference}
           verses={featuredVerse.verses}
           explanation={featuredVerse.explanation}

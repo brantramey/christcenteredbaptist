@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import BibleVerseCard from '../../components/BibleVerseCard/BibleVerseCard';
+import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import './HymnsPage.css';
 import config from '../../config/config';
@@ -138,7 +138,7 @@ const HymnsPage: React.FC = () => {
               className={`verse-card clickable ${selectedVerseIndex === index ? 'active' : ''}`}
               onClick={() => handleVerseSelect(index)}
             >
-              <BibleVerseCard
+              <IndividualCard
                 reference={verse.reference}
                 verses={verse.verses}
                 explanation={verse.explanation}
