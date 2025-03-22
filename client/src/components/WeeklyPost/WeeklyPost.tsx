@@ -5,7 +5,7 @@ interface WeeklyPostProps {
   title: string;
   date: string;
   content: string;
-  type: 'salvation' | 'hymn';
+  type: 'salvation' | 'hymn' | 'armor';
   author?: string;
   references?: string[];
 }

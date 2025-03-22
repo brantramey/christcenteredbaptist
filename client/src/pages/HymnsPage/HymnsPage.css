@@ -1,60 +1,126 @@
-.hymns-page {
-  text-align: left;
+.armor-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
-.hymns-intro {
+.armor-intro {
+  text-align: center;
   margin-bottom: 3rem;
 }
 
-.hymns-intro h1 {
-  font-size: 2.2rem;
-  color: #1a1a2e;
+.armor-intro h1 {
+  color: #1e3a8a;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hymns-description {
+.armor-description {
   font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.featured-hymns,
-.hymn-posts {
+/* Verses Section */
+.armor-verses {
   margin-bottom: 3rem;
 }
 
-.featured-hymns h2,
-.hymn-posts h2 {
-  font-size: 1.8rem;
-  color: #1a1a2e;
+.armor-verses h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.click-instruction {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
   margin-bottom: 1.5rem;
-  text-align: left;
 }
 
-.hymns-container {
+.verses-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
-@media screen and (max-width: 768px) {
-  .hymns-intro h1 {
+/* Clickable Verse Cards */
+.verse-card.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-card.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.verse-card.clickable::after {
+  content: "Click for more details";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7rem;
+  border-radius: 4px 0 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.verse-card.clickable:hover::after {
+  opacity: 1;
+}
+
+.verse-card.active {
+  border: 2px solid #1e3a8a;
+  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
+  background-color: #f0f9ff;
+}
+
+/* Posts Section */
+.armor-posts {
+  margin-bottom: 3rem;
+}
+
+.armor-posts h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+/* Animation for content changes */
+.weekly-post {
+  transition: opacity 0.3s ease;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .verses-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .armor-intro h1 {
     font-size: 1.8rem;
   }
   
-  .hymns-description {
+  .armor-description {
     font-size: 1rem;
   }
   
-  .featured-hymns h2,
-  .hymn-posts h2 {
+  .armor-verses h2,
+  .armor-posts h2 {
     font-size: 1.5rem;
-  }
-  
-  .hymns-container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
 }

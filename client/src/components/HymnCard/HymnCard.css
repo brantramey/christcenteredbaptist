@@ -1,81 +1,74 @@
 .hymn-card {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hymn-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-.hymn-header {
-  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .hymn-title {
-  color: #1a1a2e;
+  color: #1e3a8a;
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px solid #4b59f7;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
 }
 
 .hymn-metadata {
+  display: flex;
+  justify-content: space-between;
+  color: #64748b;
   font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .hymn-author {
-  margin-right: 0.5rem;
-}
-
-.hymn-content {
-  margin-bottom: 1.5rem;
-}
-
-.hymn-lyrics {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-}
-
-.hymn-line {
+  font-style: italic;
+  margin-right: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.hymn-explanation {
-  background-color: #f0f0f7;
-  padding: 1rem;
-  border-left: 4px solid #4b59f7;
-  border-radius: 0 4px 4px 0;
-}
-
-.hymn-explanation h4 {
+.hymn-year {
   margin-bottom: 0.5rem;
-  color: #1a1a2e;
 }
 
-.hymn-explanation p {
-  font-size: 1rem;
+.hymn-excerpt {
+  background-color: #f8fafc;
+  border-left: 3px solid #1e3a8a;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  color: #334155;
   line-height: 1.5;
-  color: #444;
 }
 
-@media screen and (max-width: 768px) {
-  .hymn-card {
-    padding: 1rem;
-  }
-  
-  .hymn-title {
-    font-size: 1.3rem;
-  }
-  
-  .hymn-lyrics {
-    font-size: 1rem;
-  }
+.hymn-excerpt h4 {
+  color: #1e3a8a;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.hymn-excerpt blockquote {
+  margin: 0;
+  font-style: italic;
+}
+
+.hymn-excerpt p {
+  margin: 0;
+}
+
+.hymn-description {
+  color: #334155;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.hymn-description p {
+  margin: 0;
 }
