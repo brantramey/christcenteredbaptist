@@ -1,0 +1,122 @@
+.jesus-is-god-page {
+  text-align: left;
+}
+
+.jesus-intro {
+  margin-bottom: 3rem;
+}
+
+.jesus-intro h1 {
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.jesus-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.hebrews-section,
+.divinity-evidence {
+  margin-bottom: 3rem;
+}
+
+.hebrews-section h2,
+.divinity-evidence h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.verses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.evidence-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.evidence-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evidence-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.evidence-title {
+  color: #1a1a2e;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4b59f7;
+  padding-bottom: 0.5rem;
+}
+
+.evidence-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.evidence-verse {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #4b59f7;
+}
+
+.verse-reference {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.verse-text {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.verse-explanation {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+@media screen and (max-width: 768px) {
+  .jesus-intro h1 {
+    font-size: 1.8rem;
+  }
+  
+  .jesus-description {
+    font-size: 1rem;
+  }
+  
+  .hebrews-section h2,
+  .divinity-evidence h2 {
+    font-size: 1.5rem;
+  }
+  
+  .verses-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .evidence-title {
+    font-size: 1.3rem;
+  }
+}

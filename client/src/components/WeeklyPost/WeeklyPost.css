@@ -1,0 +1,96 @@
+.weekly-post {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.salvation-post {
+  border-top: 5px solid #4b59f7;
+}
+
+.hymn-post {
+  border-top: 5px solid #6c63ff;
+}
+
+.post-header {
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 0.75rem;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.post-date, .post-author {
+  font-style: italic;
+}
+
+.post-type {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.hymn-post .post-type {
+  background-color: #6c63ff;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-references {
+  background-color: #f0f0f7;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+.post-references h4 {
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.post-references ul {
+  padding-left: 1.5rem;
+}
+
+.post-references li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+@media screen and (max-width: 768px) {
+  .weekly-post {
+    padding: 1.5rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import BibleVerseCard from '../../components/BibleVerseCard/BibleVerseCard';
+import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
+import { Tweet } from '../../types/types';
+import TwitterFeed from '../../components/TwitterFeed/TwitterFeed';
+import './HomePage.css';
+import config from '../../config/config';
+
+const HomePage: React.FC = () => {
+  const [featuredVerse, setFeaturedVerse] = useState({
+    reference: '2 Timothy 3:16-17',
+    verses: 'All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness: That the man of God may be perfect, throughly furnished unto all good works.',
+    explanation: 'This verse reminds us of the importance and purpose of Scripture in our lives.'
+  });
+
+  const [recentPosts, setRecentPosts] = useState([
+    {
+      title: 'The Gift of Salvation',
+      date: 'March 15, 2025',
+      content: 'Salvation is a free gift from God, not something we can earn through our own efforts. Ephesians 2:8-9 tells us, "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast."\n\nThis passage clearly explains that salvation comes through faith in Jesus Christ, not through our own works or merit. It is entirely a gift of God\'s grace.',
+      type: 'salvation' as const,
+      references: ['Ephesians 2:8-9', 'Romans 6:23', 'John 3:16']
+    }
+  ]);
+
+  // const [tweets, setTweets] = useState([]);
+  const [tweets, setTweets] = useState<Tweet[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Fetch Bible verses
+    const fetchVerses = async () => {
+      try {
+        const response = await axios.get(`${config.API_BASE_URL}/verses`);
+        if (response.data && response.data.length > 0) {
+          setFeaturedVerse(response.data[0]);
+        }
+      } catch (error) {
+        console.error('Error fetching verses:', error);
+        
+        // Only use mock data if enabled in config
+        if (!config.USE_MOCK_DATA) {
+          setFeaturedVerse({
+            reference: 'Error',
+            verses: 'Could not load Bible verse',
+            explanation: 'Please check your connection to the backend server'
+          });
+        }
+      }
+    };
+
+    // Fetch posts
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(`${config.API_BASE_URL}/posts`);
+        if (response.data && response.data.length > 0) {
+          setRecentPosts(response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        
+        // Only use mock data if enabled in config
+        if (!config.USE_MOCK_DATA) {
+          setRecentPosts([]);
+        }
+      }
+    };
+
+    // Fetch tweets
+    const fetchTweets = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`${config.API_BASE_URL}/twitter/tweets/123456789?count=2`);
+        setTweets(response.data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching tweets:', err);
+        setError('Failed to load tweets');
+        
+        // Only use mock data if enabled in config
+        if (config.USE_MOCK_DATA) {
+          setTweets([
+            {
+              id: '1',
+              text: 'Join us this Sunday as we explore the meaning of salvation through Christ. #ChristCenteredBaptist #Salvation',
+              createdAt: '2025-03-20T10:30:00Z',
+              username: 'christcenteredbaptist',
+              name: 'Christ Centered Baptist',
+              profileImageUrl: 'https://via.placeholder.com/48'
+            },
+            {
+              id: '2',
+              text: '"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life." - John 3:16 #BibleVerse',
+              createdAt: '2025-03-18T14:15:00Z',
+              username: 'christcenteredbaptist',
+              name: 'Christ Centered Baptist',
+              profileImageUrl: 'https://via.placeholder.com/48'
+            }
+          ]);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVerses();
+    fetchPosts();
+    fetchTweets();
+  }, []);
+
+  return (
+    <div className="home-page">
+      <section className="welcome-section">
+        <h1>Welcome to Christ Centered Baptist</h1>
+        <p className="welcome-message">
+          We are dedicated to teaching Christ through the Bible. Our mission is to share the message of salvation
+          and help believers grow in their faith through the study of God's Word.
+        </p>
+      </section>
+
+      <section className="featured-verse-section">
+        <h2>Featured Bible Verse</h2>
+        <BibleVerseCard 
+          reference={featuredVerse.reference}
+          verses={featuredVerse.verses}
+          explanation={featuredVerse.explanation}
+        />
+      </section>
+
+      <section className="recent-posts-section">
+        <h2>Recent Posts</h2>
+        {recentPosts.map((post, index) => (
+          <WeeklyPost
+            key={index}
+            title={post.title}
+            date={post.date}
+            content={post.content}
+            type={post.type}
+            references={post.references}
+          />
+        ))}
+      </section>
+
+      <section className="twitter-section">
+        <TwitterFeed tweets={tweets} loading={loading} error={error} />
+      </section>
+    </div>
+  );
+};
+
+export default HomePage;

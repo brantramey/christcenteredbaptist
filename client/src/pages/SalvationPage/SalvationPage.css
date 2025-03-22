@@ -1,0 +1,60 @@
+.salvation-page {
+  text-align: left;
+}
+
+.salvation-intro {
+  margin-bottom: 3rem;
+}
+
+.salvation-intro h1 {
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.salvation-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.salvation-verses,
+.salvation-posts {
+  margin-bottom: 3rem;
+}
+
+.salvation-verses h2,
+.salvation-posts h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.verses-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .salvation-intro h1 {
+    font-size: 1.8rem;
+  }
+  
+  .salvation-description {
+    font-size: 1rem;
+  }
+  
+  .salvation-verses h2,
+  .salvation-posts h2 {
+    font-size: 1.5rem;
+  }
+  
+  .verses-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
