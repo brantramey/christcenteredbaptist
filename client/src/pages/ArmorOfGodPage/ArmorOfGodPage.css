@@ -1,8 +1,11 @@
 .armor-page {
-  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .armor-intro {
+  text-align: center;
   margin-bottom: 3rem;
 }
 
@@ -30,7 +33,7 @@
   font-size: 1.8rem;
   color: #1a1a2e;
   margin-bottom: 1.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 .verses-container {
@@ -93,6 +96,10 @@
   font-size: 1rem;
   line-height: 1.5;
   color: #444;
+}
+
+.armor-posts .post-references {
+  text-align: left;
 }
 
 @media screen and (max-width: 768px) {

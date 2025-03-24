@@ -1,21 +1,21 @@
-.armor-page {
+.hymns-page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-.armor-intro {
+.hymns-intro {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.armor-intro h1 {
+.hymns-intro h1 {
   color: #1e3a8a;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.armor-description {
+.hymns-description {
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto;
@@ -23,11 +23,11 @@
 }
 
 /* Verses Section */
-.armor-verses {
+.hymns-verses {
   margin-bottom: 3rem;
 }
 
-.armor-verses h2 {
+.hymns-verses h2 {
   text-align: center;
   color: #1e3a8a;
   margin-bottom: 1rem;
@@ -84,16 +84,19 @@
 }
 
 /* Posts Section */
-.armor-posts {
+.hymns-posts {
   margin-bottom: 3rem;
 }
 
-.armor-posts h2 {
+.hymns-posts h2 {
   text-align: center;
   color: #1e3a8a;
   margin-bottom: 1.5rem;
 }
 
+.hymns-posts .post-references {
+  text-align: left;
+}
 /* Animation for content changes */
 .weekly-post {
   transition: opacity 0.3s ease;
@@ -111,16 +114,16 @@
     grid-template-columns: 1fr;
   }
   
-  .armor-intro h1 {
+  .hymns-intro h1 {
     font-size: 1.8rem;
   }
   
-  .armor-description {
+  .hymns-description {
     font-size: 1rem;
   }
   
-  .armor-verses h2,
-  .armor-posts h2 {
+  .hymns-verses h2,
+  .hymns-posts h2 {
     font-size: 1.5rem;
   }
 }

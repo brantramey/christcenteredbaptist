@@ -94,6 +94,9 @@
   margin-bottom: 1.5rem;
 }
 
+.salvation-posts .post-references {
+  text-align: left;
+}
 /* Animation for content changes */
 .weekly-post {
   transition: opacity 0.3s ease;
