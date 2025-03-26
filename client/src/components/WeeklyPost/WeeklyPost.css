@@ -1,27 +1,19 @@
 .weekly-post {
-  background-color: #f8f9fa;
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.salvation-post {
-  border-top: 5px solid #4b59f7;
-}
-
-.hymn-post {
-  border-top: 5px solid #6c63ff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .post-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .post-title {
-  font-size: 1.8rem;
-  color: #1a1a2e;
-  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
 }
 
 .post-meta {
@@ -30,29 +22,34 @@
   gap: 1rem;
   font-size: 0.9rem;
   color: #666;
+  margin-bottom: 0.5rem;
 }
 
-.post-date, .post-author {
-  font-style: italic;
-}
-
+.post-date,
+.post-author,
 .post-type {
-  background-color: #1a1a2e;
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
 }
 
-.hymn-post .post-type {
-  background-color: #6c63ff;
+.post-date::before {
+  content: "📅";
+  margin-right: 0.3rem;
+}
+
+.post-author::before {
+  content: "✍️";
+  margin-right: 0.3rem;
+}
+
+.post-type::before {
+  content: "📚";
+  margin-right: 0.3rem;
 }
 
 .post-content {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #333;
-  margin-bottom: 1.5rem;
 }
 
 .post-content p {
@@ -60,37 +57,59 @@
 }
 
 .post-references {
-  background-color: #f0f0f7;
-  padding: 1rem 1.5rem;
-  border-radius: 4px;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
 }
 
 .post-references h4 {
-  color: #1a1a2e;
-  margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
 }
 
 .post-references ul {
   padding-left: 1.5rem;
+  margin-bottom: 0;
 }
 
 .post-references li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  color: #444;
+  margin-bottom: 0.3rem;
 }
 
+/* Style based on post type */
+.salvation-post {
+  border-left: 4px solid #3b82f6;
+}
+
+.hymn-post {
+  border-left: 4px solid #8b5cf6;
+}
+
+.armor-post {
+  border-left: 4px solid #10b981;
+}
+
+/* Preview styling */
+.read-more-hint {
+  font-style: italic;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .weekly-post {
-    padding: 1.5rem;
-  }
-  
   .post-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
-  .post-content {
-    font-size: 1rem;
+  .post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .weekly-post {
+    padding: 1rem;
   }
 }

@@ -86,10 +86,11 @@
 /* Posts Section */
 .salvation-posts {
   margin-bottom: 3rem;
+  text-align: left;
 }
 
 .salvation-posts h2 {
-  text-align: center;
+  text-align: left;
   color: #1e3a8a;
   margin-bottom: 1.5rem;
 }

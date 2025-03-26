@@ -20,6 +20,7 @@
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
+  color: #333;
 }
 
 /* Verses Section */
@@ -31,6 +32,7 @@
   text-align: center;
   color: #1e3a8a;
   margin-bottom: 1rem;
+  font-size: 1.8rem;
 }
 
 .click-instruction {
@@ -86,17 +88,20 @@
 /* Posts Section */
 .hymns-posts {
   margin-bottom: 3rem;
+  text-align: left;
 }
 
 .hymns-posts h2 {
   text-align: center;
   color: #1e3a8a;
   margin-bottom: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .hymns-posts .post-references {
   text-align: left;
 }
+
 /* Animation for content changes */
 .weekly-post {
   transition: opacity 0.3s ease;
@@ -109,11 +114,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .verses-container {
-    grid-template-columns: 1fr;
-  }
-  
+@media screen and (max-width: 768px) {
   .hymns-intro h1 {
     font-size: 1.8rem;
   }
@@ -125,5 +126,9 @@
   .hymns-verses h2,
   .hymns-posts h2 {
     font-size: 1.5rem;
+  }
+  
+  .verses-container {
+    grid-template-columns: 1fr;
   }
 }

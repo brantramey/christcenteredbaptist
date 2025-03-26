@@ -1,14 +1,18 @@
 .about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   text-align: left;
 }
 
 .about-intro {
+  text-align: center;
   margin-bottom: 3rem;
 }
 
 .about-intro h1 {
-  font-size: 2.2rem;
-  color: #1a1a2e;
+  color: #1e3a8a;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
@@ -31,10 +35,10 @@
 .about-beliefs h2,
 .about-content h2,
 .about-connect h2 {
+  text-align: center;
+  color: #1e3a8a;
   font-size: 1.8rem;
-  color: #1a1a2e;
   margin-bottom: 1.5rem;
-  text-align: left;
 }
 
 .about-mission p,
@@ -44,12 +48,17 @@
   line-height: 1.6;
   color: #333;
   margin-bottom: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .beliefs-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .belief-card {
@@ -66,7 +75,7 @@
 }
 
 .belief-card h3 {
-  color: #1a1a2e;
+  color: #1e3a8a;
   font-size: 1.4rem;
   margin-bottom: 1rem;
   border-bottom: 2px solid #4b59f7;
@@ -83,6 +92,9 @@
   list-style-type: disc;
   padding-left: 2rem;
   margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content-list li {
@@ -90,6 +102,16 @@
   line-height: 1.6;
   color: #333;
   margin-bottom: 0.5rem;
+}
+
+/* Animation for content changes */
+.belief-card {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media screen and (max-width: 768px) {
@@ -113,7 +135,6 @@
   
   .beliefs-container {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
   
   .belief-card h3 {
