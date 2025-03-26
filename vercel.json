@@ -2,20 +2,8 @@
   "version": 2,
   "buildCommand": "cd client && npm install && npm run build && cd ../server && npm install && npm run build",
   "outputDirectory": "client/build",
-  "framework": "create-react-app",
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node@2.15.10"
-    }
-  }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
