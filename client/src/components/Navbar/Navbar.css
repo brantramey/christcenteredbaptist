@@ -64,6 +64,11 @@
   transition: all 0.3s ease;
 }
 
+/* Menu icon for mobile */
+.menu-icon {
+  display: none;
+}
+
 @media screen and (max-width: 960px) {
   .navbar {
     position: relative;
@@ -106,5 +111,26 @@
     color: #4b59f7;
     transform: scale(1.2);
     transition: all 0.3s ease;
+  }
+  
+  /* Mobile menu icon styles */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  /* Simple hamburger and close icons using text characters */
+  .menu-icon i.fas.fa-bars:before {
+    content: '☰';
+  }
+  
+  .menu-icon i.fas.fa-times:before {
+    content: '✕';
   }
 }
