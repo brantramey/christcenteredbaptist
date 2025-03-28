@@ -51,6 +51,7 @@ const HomePage: React.FC = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`${config.API_BASE_URL}/posts`);
+        console.log('API Response:', response.data);
         if (response.data && response.data.length > 0) {
           setRecentPosts(response.data);
         }
