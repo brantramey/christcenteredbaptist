@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import styles from './SalvationPage.module.css';
@@ -64,11 +65,37 @@ const SalvationPage: React.FC = () => {
   };
 
   // Determine which content to show in the Weekly Teaching section
-  const currentTeaching = selectedVerseIndex !== null 
-    ? salvationVerses[selectedVerseIndex].detailedTeaching 
+  const currentTeaching = selectedVerseIndex !== null
+    ? salvationVerses[selectedVerseIndex].detailedTeaching
     : salvationPosts[0];  // Default to the first post if no verse selected
 
+  const location = useLocation();
+
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const reference = params.get('reference');
+
+    if (reference) {
+      // Find the index of the salvation verse with the matching reference
+      const index = salvationVerses.findIndex(verse => verse.reference === reference);
+
+      if (index !== -1) {
+        // Set the selected verse index to trigger the detailed teaching to update
+        setSelectedVerseIndex(index);
+
+        // Scroll to the Weekly Salvation Teachings section
+        const weeklyPostElement = document.getElementById('weekly-post');
+        const offset = weeklyPostElement ? weeklyPostElement.offsetTop - 50 : 0;
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          });
+        }, 100); // Add a small delay to ensure the content is loaded
+      }
+    }
+
     // Fetch salvation verses
     const fetchSalvationVerses = async () => {
       try {
@@ -116,7 +143,7 @@ const SalvationPage: React.FC = () => {
 
     fetchSalvationVerses();
     fetchSalvationPosts();
-  }, []);
+  }, [location.search, salvationVerses]);
 
   return (
     <div className={styles['salvation-page']}>

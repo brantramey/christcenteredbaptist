@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import styles from './HymnsPage.module.css';
@@ -64,11 +65,37 @@ const HymnsPage: React.FC = () => {
   };
 
   // Determine which content to show in the Weekly Teaching section
-  const currentTeaching = selectedVerseIndex !== null 
-    ? hymnVerses[selectedVerseIndex].detailedTeaching 
+  const currentTeaching = selectedVerseIndex !== null
+    ? hymnVerses[selectedVerseIndex].detailedTeaching
     : hymnPosts[0];  // Default to the first post if no verse selected
 
+  const location = useLocation();
+
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const reference = params.get('reference');
+
+    if (reference) {
+      // Find the index of the hymn verse with the matching reference
+      const index = hymnVerses.findIndex(verse => verse.reference === reference);
+
+      if (index !== -1) {
+        // Set the selected verse index to trigger the detailed teaching to update
+        setSelectedVerseIndex(index);
+
+        // Scroll to the Weekly Hymn Study section
+        const weeklyPostElement = document.getElementById('weekly-post');
+        const offset = weeklyPostElement ? weeklyPostElement.offsetTop - 50 : 0;
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          });
+        }, 100); // Add a small delay to ensure the content is loaded
+      }
+    }
+
     // Fetch hymn verses
     const fetchHymnVerses = async () => {
       try {
@@ -116,7 +143,7 @@ const HymnsPage: React.FC = () => {
 
     fetchHymnVerses();
     fetchHymnPosts();
-  }, []);
+  }, [location.search, hymnVerses]);
 
   return (
     <div className={styles['hymns-page']}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import styles from './ArmorOfGodPage.module.css';
@@ -115,21 +116,39 @@ const ArmorOfGodPage: React.FC = () => {
     }
   ]);
 
-  // State to track which verse is currently selected for the detailed teaching
+  const location = useLocation();
   const [selectedVerseIndex, setSelectedVerseIndex] = useState<number | null>(null);
 
-  // Function to handle verse selection for detailed teaching
   const handleVerseSelect = (index: number) => {
     setSelectedVerseIndex(index);
   };
 
-  // Determine which content to show in the Weekly Teaching section
   const currentTeaching = selectedVerseIndex !== null 
     ? armorVerses[selectedVerseIndex].detailedTeaching 
-    : armorPosts[0];  // Default to the first post if no verse selected
+    : armorPosts[0];
 
   useEffect(() => {
-    // Fetch armor verses
+    const params = new URLSearchParams(location.search);
+    const reference = params.get('reference');
+
+    if (reference) {
+      const index = armorVerses.findIndex(verse => verse.reference === reference);
+
+      if (index !== -1) {
+        setSelectedVerseIndex(index);
+
+        const weeklyPostElement = document.getElementById('weekly-post');
+        const offset = weeklyPostElement ? weeklyPostElement.offsetTop - 50 : 0;
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          });
+        }, 100);
+      }
+    }
+
     const fetchArmorVerses = async () => {
       try {
         const response = await axios.get(`${config.API_BASE_URL}/verses/armor`);
@@ -139,7 +158,6 @@ const ArmorOfGodPage: React.FC = () => {
       } catch (error) {
         console.error('Error fetching armor verses:', error);
         
-        // Only use mock data if enabled in config
         if (!config.USE_MOCK_DATA) {
           setArmorVerses([{
             reference: 'Error',
@@ -157,7 +175,6 @@ const ArmorOfGodPage: React.FC = () => {
       }
     };
 
-    // Fetch armor posts
     const fetchArmorPosts = async () => {
       try {
         const response = await axios.get(`${config.API_BASE_URL}/posts/armor`);
@@ -167,7 +184,6 @@ const ArmorOfGodPage: React.FC = () => {
       } catch (error) {
         console.error('Error fetching armor posts:', error);
         
-        // Only use mock data if enabled in config
         if (!config.USE_MOCK_DATA) {
           setArmorPosts([]);
         }
@@ -176,7 +192,7 @@ const ArmorOfGodPage: React.FC = () => {
 
     fetchArmorVerses();
     fetchArmorPosts();
-  }, []);
+  }, [location.search, armorVerses]);
 
   return (
     <div className={styles['armor-page']}>

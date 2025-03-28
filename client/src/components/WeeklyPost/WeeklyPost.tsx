@@ -35,7 +35,10 @@ const WeeklyPost: React.FC<WeeklyPostProps> = ({
   };
 
   return (
-    <div className={`${styles['weekly-post']} ${styles[type + '-post']}`}>
+    <div
+      id="weekly-post"
+      className={`${styles['weekly-post']} ${styles[type + '-post']}`}
+    >
       <div className={styles['post-header']}>
         <h2 className={styles['post-title']}>{title}</h2>
         <div className={styles['post-meta']}>
@@ -47,17 +50,17 @@ const WeeklyPost: React.FC<WeeklyPostProps> = ({
       <div className={styles['post-content']}>
         {isPreview
           ? // For preview, show only the first paragraph and truncate if too long
-            content.split('\n').slice(0, 1).map((paragraph, index) => (
-              <p key={index}>
-                {paragraph.length > 200
-                  ? `${paragraph.substring(0, 200)}...`
-                  : paragraph}
-              </p>
-            ))
+          content.split('\n').slice(0, 1).map((paragraph, index) => (
+            <p key={index}>
+              {paragraph.length > 200
+                ? `${paragraph.substring(0, 200)}...`
+                : paragraph}
+            </p>
+          ))
           : // For full view, show all paragraphs
-            content.split('\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))
+          content.split('\n').map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))
         }
         {isPreview && <p className={styles['read-more-hint']}>Click to read more...</p>}
       </div>
