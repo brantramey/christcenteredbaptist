@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
+import { WeeklyPostProps } from '../../components/WeeklyPost/WeeklyPost';
 import { Tweet } from '../../types/types';
 import TwitterFeed from '../../components/TwitterFeed/TwitterFeed';
 import styles from './HomePage.module.css';
@@ -17,15 +18,7 @@ const HomePage: React.FC = () => {
     explanation: 'This verse reminds us of the importance and purpose of Scripture in our lives.'
   });
 
-  const [recentPosts, setRecentPosts] = useState([
-    {
-      title: 'The Gift of Salvation',
-      date: 'March 15, 2025',
-      content: 'Salvation is a free gift from God, not something we can earn through our own efforts. Ephesians 2:8-9 tells us, "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast."\n\nThis passage clearly explains that salvation comes through faith in Jesus Christ, not through our own works or merit. It is entirely a gift of God\'s grace.',
-      type: 'salvation' as const,
-      references: ['Ephesians 2:8-9', 'Romans 6:23', 'John 3:16']
-    }
-  ]);
+  const [recentPosts, setRecentPosts] = useState<WeeklyPostProps[]>([]);
 
   // const [tweets, setTweets] = useState([]);
   const [tweets, setTweets] = useState<Tweet[]>([]);

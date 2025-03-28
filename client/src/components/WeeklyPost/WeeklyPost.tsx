@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './WeeklyPost.module.css';
 
-interface WeeklyPostProps {
+export interface WeeklyPostProps {
   title: string;
   date: string;
   content: string;
