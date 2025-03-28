@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
-import './SalvationPage.css';
+import styles from './SalvationPage.module.css';
 import config from '../../config/config';
 
 const SalvationPage: React.FC = () => {
@@ -119,23 +119,23 @@ const SalvationPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="salvation-page">
-      <section className="salvation-intro">
+    <div className={styles['salvation-page']}>
+      <section className={styles['salvation-intro']}>
         <h1>Salvation Through Christ</h1>
-        <p className="salvation-description">
-          Salvation is the free gift of God to all who believe in Jesus Christ. On this page, we explore 
+        <p className={styles['salvation-description']}>
+          Salvation is the free gift of God to all who believe in Jesus Christ. On this page, we explore
           what the Bible teaches about salvation, how to receive it, and what it means for our lives.
         </p>
       </section>
 
-      <section className="salvation-verses">
+      <section className={styles['salvation-verses']}>
         <h2>Key Bible Verses About Salvation</h2>
-        <p className="click-instruction">Click on any verse to see a detailed teaching below</p>
-        <div className="verses-container">
+        <p className={styles['click-instruction']}>Click on any verse to see a detailed teaching below</p>
+        <div className={styles['verses-container']}>
           {salvationVerses.map((verse, index) => (
-            <div 
-              key={index} 
-              className={`verse-card clickable ${selectedVerseIndex === index ? 'active' : ''}`}
+            <div
+              key={index}
+              className={`${styles['verse-card']} ${styles['clickable']} ${selectedVerseIndex === index ? styles['active'] : ''}`}
               onClick={() => handleVerseSelect(index)}
             >
               <IndividualCard
@@ -148,7 +148,7 @@ const SalvationPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="salvation-posts">
+      <section className={styles['salvation-posts']}>
         <h2>Weekly Salvation Teachings</h2>
         <WeeklyPost
           title={currentTeaching.title}

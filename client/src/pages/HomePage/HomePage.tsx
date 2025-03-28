@@ -5,7 +5,7 @@ import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
 import { Tweet } from '../../types/types';
 import TwitterFeed from '../../components/TwitterFeed/TwitterFeed';
-import './HomePage.css';
+import styles from './HomePage.module.css';
 import config from '../../config/config';
 
 const HomePage: React.FC = () => {
@@ -132,16 +132,16 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="home-page">
-      <section className="welcome-section">
+    <div className={styles['home-page']}>
+      <section className={styles['welcome-section']}>
         <h1>Welcome to Christ Centered Baptist</h1>
-        <p className="welcome-message">
+        <p className={styles['welcome-message']}>
           We are dedicated to teaching Christ through the Bible. Our mission is to share the message of salvation
           and help believers grow in their faith through the study of God's Word.
         </p>
       </section>
 
-      <section className="featured-verse-section">
+      <section className={styles['featured-verse-section']}>
         <h2>Featured Bible Verse</h2>
         <IndividualCard
           reference={featuredVerse.reference}
@@ -150,12 +150,12 @@ const HomePage: React.FC = () => {
         />
       </section>
 
-      <section className="recent-posts-section">
+      <section className={styles['recent-posts-section']}>
         <h2>Recent Posts</h2>
         {recentPosts.map((post, index) => (
-          <div 
-            key={index} 
-            className="post-card clickable"
+          <div
+            key={index}
+            className={`${styles['post-card']} ${styles['clickable']}`}
             onClick={() => handlePostClick(post)}
           >
             <WeeklyPost
@@ -170,7 +170,7 @@ const HomePage: React.FC = () => {
         ))}
       </section>
 
-      <section className="twitter-section">
+      <section className={styles['twitter-section']}>
         <TwitterFeed tweets={tweets} loading={loading} error={error} />
       </section>
     </div>

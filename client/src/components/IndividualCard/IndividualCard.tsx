@@ -1,5 +1,5 @@
 import React from 'react';
-import './IndividualCard.css';
+import styles from './IndividualCard.module.css';
 
 interface IndividualCardProps {
   reference: string;
@@ -9,13 +9,13 @@ interface IndividualCardProps {
 
 const IndividualCard: React.FC<IndividualCardProps> = ({ reference, verses, explanation }) => {
   return (
-    <div className="individual-card">
-      <h3 className="verse-reference">{reference}</h3>
-      <div className="verse-content">
-        <p className="verse-text">{verses}</p>
+    <div className={styles['individual-card']}>
+      <h3 className={styles['verse-reference']}>{reference}</h3>
+      <div className={styles['verse-content']}>
+        <p className={styles['verse-text']}>{verses}</p>
       </div>
       {explanation && (
-        <div className="verse-explanation">
+        <div className={styles['verse-explanation']}>
           <p>{explanation}</p>
         </div>
       )}

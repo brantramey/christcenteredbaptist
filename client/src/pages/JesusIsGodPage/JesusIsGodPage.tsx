@@ -1,6 +1,6 @@
 import React from 'react';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
-import './JesusIsGodPage.css';
+import styles from './JesusIsGodPage.module.css';
 
 const JesusIsGodPage: React.FC = () => {
   // Mock data for demonstration based on the content from the original website
@@ -61,18 +61,18 @@ const JesusIsGodPage: React.FC = () => {
   ];
 
   return (
-    <div className="jesus-is-god-page">
-      <section className="jesus-intro">
+    <div className={styles['jesus-is-god-page']}>
+      <section className={styles['jesus-intro']}>
         <h1>Jesus is God</h1>
-        <p className="jesus-description">
-          One of the central doctrines of Christianity is that Jesus Christ is not merely a great teacher or prophet, but God incarnate. 
+        <p className={styles['jesus-description']}>
+          One of the central doctrines of Christianity is that Jesus Christ is not merely a great teacher or prophet, but God incarnate.
           This page explores the biblical evidence for the deity of Christ.
         </p>
       </section>
 
-      <section className="hebrews-section">
+      <section className={styles['hebrews-section']}>
         <h2>From the Book of Hebrews</h2>
-        <div className="verses-container">
+        <div className={styles['verses-container']}>
           {hebrewsVerses.map((verse, index) => (
             <IndividualCard
               key={index}
@@ -84,18 +84,18 @@ const JesusIsGodPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="divinity-evidence">
+      <section className={styles['divinity-evidence']}>
         <h2>Evidence for the Deity of Christ</h2>
-        <div className="evidence-container">
+        <div className={styles['evidence-container']}>
           {divinityEvidences.map((evidence, index) => (
-            <div key={index} className="evidence-card">
-              <h3 className="evidence-title">{evidence.title}</h3>
-              <div className="evidence-verses">
+            <div key={index} className={styles['evidence-card']}>
+              <h3 className={styles['evidence-title']}>{evidence.title}</h3>
+              <div className={styles['evidence-verses']}>
                 {evidence.verses.map((verse, vIndex) => (
-                  <div key={vIndex} className="evidence-verse">
-                    <p className="verse-reference">{verse.reference}</p>
-                    <p className="verse-text">"{verse.text}"</p>
-                    <p className="verse-explanation">{verse.explanation}</p>
+                  <div key={vIndex} className={styles['evidence-verse']}>
+                    <p className={styles['verse-reference']}>{verse.reference}</p>
+                    <p className={styles['verse-text']}>"{verse.text}"</p>
+                    <p className={styles['verse-explanation']}>{verse.explanation}</p>
                   </div>
                 ))}
               </div>

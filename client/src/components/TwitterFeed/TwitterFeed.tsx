@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Tweet } from '../../types/types';
-import './TwitterFeed.css';
+import styles from './TwitterFeed.module.css';
 import config from '../../config/config';
 
 interface TwitterFeedProps {
@@ -82,40 +82,40 @@ const TwitterFeed: React.FC<TwitterFeedProps> = ({
   }, [username, userId, searchQuery, count, propTweets]);
 
   if (loading) {
-    return <div className="twitter-feed-loading">Loading tweets...</div>;
+    return <div className={styles['twitter-feed-loading']}>Loading tweets...</div>;
   }
 
   if (error && tweets.length === 0) {
-    return <div className="twitter-feed-error">Error loading tweets: {error}</div>;
+    return <div className={styles['twitter-feed-error']}>Error loading tweets: {error}</div>;
   }
 
   if (!tweets || tweets.length === 0) {
-    return <div className="twitter-feed-empty">No tweets available</div>;
+    return <div className={styles['twitter-feed-empty']}>No tweets available</div>;
   }
 
   return (
-    <div className="twitter-feed">
-      <h3 className="twitter-feed-title">Recent Posts from X</h3>
-      <div className="twitter-feed-container">
+    <div className={styles['twitter-feed']}>
+      <h3 className={styles['twitter-feed-title']}>Recent Posts from X</h3>
+      <div className={styles['twitter-feed-container']}>
         {tweets.map((tweet) => (
-          <div key={tweet.id} className="tweet-card">
-            <div className="tweet-header">
-              <img src={tweet.profileImageUrl} alt={tweet.name} className="tweet-profile-image" />
-              <div className="tweet-user-info">
-                <span className="tweet-name">{tweet.name}</span>
-                <span className="tweet-username">@{tweet.username}</span>
+          <div key={tweet.id} className={styles['tweet-card']}>
+            <div className={styles['tweet-header']}>
+              <img src={tweet.profileImageUrl} alt={tweet.name} className={styles['tweet-profile-image']} />
+              <div className={styles['tweet-user-info']}>
+                <span className={styles['tweet-name']}>{tweet.name}</span>
+                <span className={styles['tweet-username']}>@{tweet.username}</span>
               </div>
             </div>
-            <div className="tweet-content">
+            <div className={styles['tweet-content']}>
               <p>{tweet.text}</p>
             </div>
-            <div className="tweet-footer">
-              <span className="tweet-date">{new Date(tweet.createdAt).toLocaleDateString()}</span>
-              <a 
-                href={`https://twitter.com/${tweet.username}/status/${tweet.id}`} 
-                target="_blank" 
+            <div className={styles['tweet-footer']}>
+              <span className={styles['tweet-date']}>{new Date(tweet.createdAt).toLocaleDateString()}</span>
+              <a
+                href={`https://twitter.com/${tweet.username}/status/${tweet.id}`}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="tweet-link"
+                className={styles['tweet-link']}
               >
                 View on X
               </a>

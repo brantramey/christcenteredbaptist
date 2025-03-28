@@ -5,7 +5,13 @@ const { createServer } = require('http');
 const { parse } = require('url');
 
 // Import routes (these will be created in the build process)
-const apiRoutes = require('../server/dist/routes/api').default;
+let apiRoutes;
+try {
+  apiRoutes = require('../server/dist/routes/api').default;
+} catch (error) {
+  console.error('Failed to load apiRoutes:', error);
+  process.exit(1); // Exit the process if apiRoutes cannot be loaded
+}
 
 // Create Express app
 const app = express();
@@ -19,7 +25,7 @@ app.use('/api', apiRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Server is running' });
+  res.json({ status: 'ok', message: 'Server is running', env: process.env.NODE_ENV || 'development' });
 });
 
 // Create serverless function handler

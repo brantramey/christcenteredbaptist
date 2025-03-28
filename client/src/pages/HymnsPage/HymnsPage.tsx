@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
-import './HymnsPage.css';
+import styles from './HymnsPage.module.css';
 import config from '../../config/config';
 
 const HymnsPage: React.FC = () => {
@@ -119,23 +119,23 @@ const HymnsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="hymns-page">
-      <section className="hymns-intro">
+    <div className={styles['hymns-page']}>
+      <section className={styles['hymns-intro']}>
         <h1>Timeless Hymns of Faith</h1>
-        <p className="hymns-description">
-          Hymns have been a cornerstone of Christian worship for centuries, carrying rich theological truths 
+        <p className={styles['hymns-description']}>
+          Hymns have been a cornerstone of Christian worship for centuries, carrying rich theological truths
           and expressions of faith. Explore these timeless compositions that continue to inspire believers today.
         </p>
       </section>
 
-      <section className="hymns-verses">
+      <section className={styles['hymns-verses']}>
         <h2>Classic Hymns and Their Stories</h2>
-        <p className="click-instruction">Click on any hymn to see a detailed history below</p>
-        <div className="verses-container">
+        <p className={styles['click-instruction']}>Click on any hymn to see a detailed history below</p>
+        <div className={styles['verses-container']}>
           {hymnVerses.map((verse, index) => (
-            <div 
-              key={index} 
-              className={`verse-card clickable ${selectedVerseIndex === index ? 'active' : ''}`}
+            <div
+              key={index}
+              className={`${styles['verse-card']} ${styles['clickable']} ${selectedVerseIndex === index ? styles['active'] : ''}`}
               onClick={() => handleVerseSelect(index)}
             >
               <IndividualCard
@@ -148,7 +148,7 @@ const HymnsPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="hymns-posts">
+      <section className={styles['hymns-posts']}>
         <h2>Weekly Hymn Study</h2>
         <WeeklyPost
           title={currentTeaching.title}

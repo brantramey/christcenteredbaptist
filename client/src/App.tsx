@@ -8,15 +8,15 @@ import HymnsPage from './pages/HymnsPage/HymnsPage';
 import ArmorOfGodPage from './pages/ArmorOfGodPage/ArmorOfGodPage';
 import JesusIsGodPage from './pages/JesusIsGodPage/JesusIsGodPage';
 import AboutPage from './pages/AboutPage/AboutPage';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className={styles.App}>
         <Navbar />
         <Header />
-        <div className="container">
+        <div className={styles.container}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/salvation" element={<SalvationPage />} />

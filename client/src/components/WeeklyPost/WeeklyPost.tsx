@@ -1,5 +1,5 @@
 import React from 'react';
-import './WeeklyPost.css';
+import styles from './WeeklyPost.module.css';
 
 interface WeeklyPostProps {
   title: string;
@@ -35,22 +35,22 @@ const WeeklyPost: React.FC<WeeklyPostProps> = ({
   };
 
   return (
-    <div className={`weekly-post ${type}-post`}>
-      <div className="post-header">
-        <h2 className="post-title">{title}</h2>
-        <div className="post-meta">
-          <span className="post-date">{date}</span>
-          {author && <span className="post-author">By: {author}</span>}
-          <span className="post-type">{getTypeDisplay(type)}</span>
+    <div className={`${styles['weekly-post']} ${styles[type + '-post']}`}>
+      <div className={styles['post-header']}>
+        <h2 className={styles['post-title']}>{title}</h2>
+        <div className={styles['post-meta']}>
+          <span className={styles['post-date']}>{date}</span>
+          {author && <span className={styles['post-author']}>By: {author}</span>}
+          <span className={styles['post-type']}>{getTypeDisplay(type)}</span>
         </div>
       </div>
-      <div className="post-content">
-        {isPreview 
+      <div className={styles['post-content']}>
+        {isPreview
           ? // For preview, show only the first paragraph and truncate if too long
             content.split('\n').slice(0, 1).map((paragraph, index) => (
               <p key={index}>
-                {paragraph.length > 200 
-                  ? `${paragraph.substring(0, 200)}...` 
+                {paragraph.length > 200
+                  ? `${paragraph.substring(0, 200)}...`
                   : paragraph}
               </p>
             ))
@@ -59,10 +59,10 @@ const WeeklyPost: React.FC<WeeklyPostProps> = ({
               <p key={index}>{paragraph}</p>
             ))
         }
-        {isPreview && <p className="read-more-hint">Click to read more...</p>}
+        {isPreview && <p className={styles['read-more-hint']}>Click to read more...</p>}
       </div>
       {references && references.length > 0 && (
-        <div className="post-references">
+        <div className={styles['post-references']}>
           <h4>References</h4>
           <ul>
             {references.map((reference, index) => (

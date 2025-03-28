@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IndividualCard from '../../components/IndividualCard/IndividualCard';
 import WeeklyPost from '../../components/WeeklyPost/WeeklyPost';
-import './ArmorOfGodPage.css';
+import styles from './ArmorOfGodPage.module.css';
 import config from '../../config/config';
 
 const ArmorOfGodPage: React.FC = () => {
@@ -179,23 +179,23 @@ const ArmorOfGodPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="armor-page">
-      <section className="armor-intro">
+    <div className={styles['armor-page']}>
+      <section className={styles['armor-intro']}>
         <h1>Put on the Full Armor of God</h1>
-        <p className="armor-description">
-          Ephesians 6:10-17 explains that we need to have the armor of God. This page explores what the parts 
+        <p className={styles['armor-description']}>
+          Ephesians 6:10-17 explains that we need to have the armor of God. This page explores what the parts
           of the full armor of God are and how they protect us in our spiritual battle.
         </p>
       </section>
 
-      <section className="armor-verses">
+      <section className={styles['armor-verses']}>
         <h2>The Pieces of God's Armor</h2>
-        <p className="click-instruction">Click on any armor piece to see a detailed teaching below</p>
-        <div className="verses-container">
+        <p className={styles['click-instruction']}>Click on any armor piece to see a detailed teaching below</p>
+        <div className={styles['verses-container']}>
           {armorVerses.map((verse, index) => (
-            <div 
-              key={index} 
-              className={`verse-card clickable ${selectedVerseIndex === index ? 'active' : ''}`}
+            <div
+              key={index}
+              className={`${styles['verse-card']} ${styles['clickable']} ${selectedVerseIndex === index ? styles['active'] : ''}`}
               onClick={() => handleVerseSelect(index)}
             >
               <IndividualCard
@@ -208,7 +208,7 @@ const ArmorOfGodPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="armor-posts">
+      <section className={styles['armor-posts']}>
         <h2>Weekly Armor Teaching</h2>
         <WeeklyPost
           title={currentTeaching.title}

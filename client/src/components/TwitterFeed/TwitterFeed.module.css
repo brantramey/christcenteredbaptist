@@ -1,0 +1,102 @@
+.twitter-feed {
+  margin: 2rem 0;
+}
+
+.twitter-feed-title {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4b59f7;
+  padding-bottom: 0.5rem;
+}
+
+.twitter-feed-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tweet-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tweet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.tweet-profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.tweet-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.tweet-username {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.tweet-content {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.tweet-link {
+  color: #4b59f7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tweet-link:hover {
+  text-decoration: underline;
+}
+
+.twitter-feed-loading,
+.twitter-feed-error,
+.twitter-feed-empty {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #666;
+}
+
+.twitter-feed-error {
+  color: #dc3545;
+}
+
+@media screen and (max-width: 768px) {
+  .twitter-feed-container {
+    grid-template-columns: 1fr;
+  }
+}
